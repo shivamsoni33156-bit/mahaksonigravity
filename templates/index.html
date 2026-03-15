@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Gravity Teaching{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero fade-in-up">
+    <div class="container">
+        <h1>Gravity Teaching – Build Your Future With the Best Guidance</h1>
+        <p>Join thousands of students achieving top ranks in IIT-JEE, NEET & Board Exams</p>
+        <a href="/courses" class="btn btn-primary btn-lg">Explore Courses</a>
+    </div>
+</section>
+
+<!-- About Institute -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">About Gravity Teaching</h2>
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1524178232363-5495a25a99e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Institute" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6">
+                <h3>India's Leading Coaching Institute</h3>
+                <p>We provide best-in-class coaching for IIT-JEE, NEET, and Class 11-12 Science with experienced faculty and proven results.</p>
+                <ul class="list-unstyled">
+                    <li>✅ 500+ Top Rankers</li>
+                    <li>✅ 95% Success Rate</li>
+                    <li>✅ Live Classes & Study Material</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Courses Offered -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title text-center">Courses Offered</h2>
+        <div class="course-grid">
+            <div class="card-glass course-card p-4 text-center" data-category="jee">
+                <img src="https://images.unsplash.com/photo-1551671347-4b112245f6a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top rounded mb-3" alt="IIT-JEE">
+                <h4>IIT-JEE Preparation</h4>
+                <p>Comprehensive preparation for JEE Main & Advanced</p>
+                <a href="/courses" class="btn btn-primary mt-3">Enroll Now</a>
+            </div>
+            <div class="card-glass course-card p-4 text-center" data-category="neet">
+                <img src="https://images.unsplash.com/photo-1576091160399-1d65c3098d8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top rounded mb-3" alt="NEET">
+                <h4>NEET Preparation</h4>
+                <p>Target NEET with expert guidance</p>
+                <a href="/courses" class="btn btn-primary mt-3">Enroll Now</a>
+            </div>
+            <div class="card-glass course-card p-4 text-center" data-category="foundation">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top rounded mb-3" alt="Class 11">
+                <h4>Class 11 Science</h4>
+                <p>Build strong foundation</p>
+                <a href="/courses" class="btn btn-primary mt-3">Enroll Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Top Rankers -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Top Rankers</h2>
+        <div class="row text-center">
+            <div class="col-md-3 mb-4">
+                <div class="card-glass p-4">
+                    <h3>1</h3>
+                    <p>Aryan Sharma<br>JEE AIR 1</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card-glass p-4">
+                    <h3>3</h3>
+                    <p>Priya Singh<br>NEET AIR 3</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card-glass p-4">
+                    <h3>5</h3>
+                    <p>Rahul Kumar<br>JEE AIR 5</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card-glass p-4">
+                    <h3>12</h3>
+                    <p>Anjali Patel<br>NEET AIR 12</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Slider -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Student Testimonials</h2>
+        <div class="testimonial-slider row justify-content-center">
+            <div class="col-lg-8 testimonial-item active text-center">
+                <div class="card-glass p-5">
+                    <p class="lead">"Gravity Teaching changed my life! Got AIR 1 in JEE thanks to their amazing faculty."</p>
+                    <h5>- Aryan Sharma, JEE AIR 1</h5>
+                </div>
+            </div>
+            <div class="col-lg-8 testimonial-item text-center">
+                <div class="card-glass p-5">
+                    <p class="lead">"Best coaching for NEET. Study materials and tests were perfect."</p>
+                    <h5>- Priya Singh, NEET AIR 3</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Teachers -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Our Expert Teachers</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card-glass text-center p-4">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="rounded-circle mx-auto mb-3" width="120" alt="Teacher">
+                    <h5>Dr. Rajesh Kumar</h5>
+                    <p>Physics HOD (IIT Delhi)</p>
+                </div>
+            </div>
+            <!-- More teachers -->
+        </div>
+    </div>
+</section>
+
+<!-- Enroll CTA -->
+<section class="section text-white text-center py-5">
+    <div class="container">
+        <h2>Ready to Start Your Journey?</h2>
+        <a href="/courses" class="btn btn-primary btn-lg mt-3">Enroll Now →</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Student Signup - Gravity Teaching{% endblock %}
+
+{% block content %}
+<section class="section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="card-glass p-5">
+                    <h2 class="text-center mb-4">Student Signup</h2>
+                    <form id="signup-form" method="POST" action="/student-signup">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" minlength="6" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Create Account</button>
+                        <div class="text-center">
+                            <a href="/student-login">Already have account? Login</a>
+                        </div>
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-info mt-3">{{ message }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+validateForm('signup-form');
+</script>
+{% endblock %}

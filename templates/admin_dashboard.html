@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - Gravity Teaching{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h2>Admin Dashboard</h2>
+        
+        <div class="row mb-5">
+            <div class="col-md-3">
+                <div class="card-glass p-4 text-center">
+                    <h3>{{ students_count }}</h3>
+                    <p>Total Students</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-glass p-4 text-center">
+                    <h3>{{ teachers_count }}</h3>
+                    <p>Total Teachers</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-glass p-4 text-center">
+                    <h3>{{ payments_success_count }}</h3>
+                    <p>Successful Payments</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-glass p-4 text-center">
+                    <h3>{{ courses_count }}</h3>
+                    <p>Total Courses</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h4>Manage Courses</h4>
+                <form method="POST" action="/admin-add-course">
+                    <input type="text" name="name" placeholder="Course Name" class="form-control mb-2" required>
+                    <input type="text" name="description" placeholder="Description" class="form-control mb-2" required>
+                    <input type="text" name="duration" placeholder="Duration" class="form-control mb-2" required>
+                    <input type="number" name="price" placeholder="Price" class="form-control mb-2" required>
+                    <button type="submit" class="btn btn-success w-100">Add Course</button>
+                </form>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h4>Add Teacher</h4>
+                <form method="POST" action="/admin-add-teacher">
+                    <input type="text" name="name" placeholder="Teacher Name" class="form-control mb-2" required>
+                    <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>
+                    <input type="text" name="subject" placeholder="Subject" class="form-control mb-2" required>
+                    <input type="password" name="password" placeholder="Password" class="form-control mb-2" required>
+                    <button type="submit" class="btn btn-success w-100">Add Teacher</button>
+                </form>
+            </div>
+        </div>
+        
+        <h3 class="mt-5">Recent Payments</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Course</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for payment in recent_payments %}
+                    <tr>
+                        <td>{{ payment.student.username }}</td>
+                        <td>{{ payment.course.name }}</td>
+                        <td>₹{{ payment.amount }}</td>
+                        <td><span class="badge bg-success">{{ payment.status }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

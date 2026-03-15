@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Student Dashboard - Gravity Teaching{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card-glass p-4 mb-4">
+                    <h5>Welcome, {{ current_user.username }}!</h5>
+                    <p><strong>Email:</strong> {{ current_user.email }}</p>
+                    <a href="/courses" class="btn btn-primary w-100">My Courses</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h2>Your Enrolled Courses</h2>
+                <div class="row">
+                    {% for payment in payments %}
+                    {% if payment.status == 'success' %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card-glass p-4">
+                            <h5>{{ payment.course.name }}</h5>
+                            <p>Status: <span class="badge bg-success">Paid</span></p>
+                            <a href="#" class="btn btn-primary">Access Materials</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% if not payments %}
+                    <div class="col-12">
+                        <div class="card-glass p-5 text-center">
+                            <h4>No enrolled courses yet.</h4>
+                            <p>Enroll in a course from <a href="/courses">Courses page</a> and complete payment.</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Announcements -->
+                <h3 class="mt-5">Announcements</h3>
+                <div class="card-glass p-4">
+                    <ul>
+                        <li>New Physics notes uploaded for JEE batch</li>
+                        <li>Class test on Saturday 10 AM</li>
+                        <li>NEET mock test results out</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

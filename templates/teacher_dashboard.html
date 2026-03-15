@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Teacher Dashboard - Gravity Teaching{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h2>Teacher Dashboard</h2>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card-glass p-4 mb-4">
+                    <h5>Upload Study Material</h5>
+                    <form enctype="multipart/form-data" method="POST" action="/upload-material">
+                        <select name="course_id" class="form-select mb-3">
+                            {% for course in courses %}
+                            <option value="{{ course.id }}">{{ course.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="file" name="pdf_file" class="form-control mb-3" accept=".pdf">
+                        <input type="text" name="title" placeholder="Material Title" class="form-control mb-3" required>
+                        <button type="submit" class="btn btn-primary w-100">Upload PDF</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-glass p-4 mb-4">
+                    <h5>Upload Assignment</h5>
+                    <form enctype="multipart/form-data" method="POST" action="/upload-assignment">
+                        <select name="course_id" class="form-select mb-3">
+                            {% for course in courses %}
+                            <option value="{{ course.id }}">{{ course.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="file" name="assignment_file" class="form-control mb-3" accept=".pdf">
+                        <input type="text" name="title" placeholder="Assignment Title" class="form-control mb-3" required>
+                        <button type="submit" class="btn btn-primary w-100">Upload Assignment</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-glass p-4 mb-4">
+                    <h5>Post Announcement</h5>
+                    <form method="POST" action="/post-announcement">
+                        <select name="course_id" class="form-select mb-3">
+                            <option value="">All Students</option>
+                            {% for course in courses %}
+                            <option value="{{ course.id }}">{{ course.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <textarea name="message" class="form-control mb-3" rows="3" placeholder="Announcement message" required></textarea>
+                        <button type="submit" class="btn btn-primary w-100">Post Announcement</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <h3 class="mt-5">Enrolled Students</h3>
+        <div class="table-responsive">
+            <table class="table card-glass">
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Course</th>
+                        <th>Payment Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for payment in payments %}
+                    <tr>
+                        <td>{{ payment.student.username }}</td>
+                        <td>{{ payment.course.name }}</td>
+                        <td><span class="badge bg-success">{{ payment.status }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

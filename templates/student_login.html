@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Student Login - Gravity Teaching{% endblock %}
+
+{% block content %}
+<section class="section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="card-glass p-5">
+                    <h2 class="text-center mb-4">Student Login</h2>
+                    <form id="login-form" method="POST" action="/student-login">
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
+                        <div class="text-center">
+                            <a href="/student-signup">Don't have account? Sign Up</a>
+                        </div>
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-danger mt-3">{{ message }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+validateForm('login-form');
+</script>
+{% endblock %}
